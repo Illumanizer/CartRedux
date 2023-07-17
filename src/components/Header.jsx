@@ -1,19 +1,19 @@
 import React from "react";
-import "../styles/Header.scss";
 import { Link } from "react-router-dom";
-import { FiShoppingCart } from "react-icons/fi";
-import Home from "./Home";
+import { FiShoppingBag } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { cartItems } = useSelector((state) => state.cart);
   return (
     <nav>
-      <h2> Logo here </h2>
+      <h2>Logo Here.</h2>
 
       <div>
-        <Link to={"/"} element={<Home/>}>Home</Link>
+        <Link to={"/"}>Home</Link>
         <Link to={"/cart"}>
-          <FiShoppingCart />
-          <p>{0}</p>{" "}
+          <FiShoppingBag />
+          <p>{cartItems.length}</p>
         </Link>
       </div>
     </nav>
