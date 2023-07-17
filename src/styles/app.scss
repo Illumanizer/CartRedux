@@ -12,10 +12,10 @@
 }
 
 @import "colors";
-@import "header";
-@import "home";
-@import "cart";
-@import "mediaquery";
+@import "./header.scss";
+@import "./home.scss";
+@import "./cart.scss";
+@import "./mediaquery.scss";
 
 body {
   background-color: $primary;
