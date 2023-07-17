@@ -11,13 +11,13 @@ const Home = () => {
   const productList = [
     {
       name: "Mac Book",
-      price: 12000,
+      price: 120000,
       imgSrc: img1,
       id: "asdhajsdbhjabhsjdfdfv",
     },
     {
       name: "Black Shoes",
-      price: 490,
+      price: 1700,
       imgSrc: img2,
       id: "sdjfdlaajsdbhjabhsjdfdfv",
     },
@@ -50,7 +50,7 @@ const ProductCard = ({ name, id, price, handler, imgSrc }) => (
   <div className="productCard">
     <img src={imgSrc} alt={name} />
     <p>{name}</p>
-    <h4>${price}</h4>
+    <h4>₹{price}</h4>
     <button onClick={() => handler({ name, price, id, quantity: 1, imgSrc })}>
       Add to Cart
     </button>
