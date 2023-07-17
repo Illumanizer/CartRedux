@@ -3,6 +3,7 @@ import { createReducer } from "@reduxjs/toolkit";
 export const cartReducer = createReducer(
   {
     cartItems: [],
+    totalqty:0,
     subTotal: 0,
     shipping: 0,
     tax: 0,
@@ -36,9 +37,12 @@ export const cartReducer = createReducer(
     },
     calculatePrice: (state) => {
       let sum = 0;
+      let qty=0;
+      state.cartItems.forEach((i)=>qty+=i.quantity);
+      state.totalqty=qty;
       state.cartItems.forEach((i) => (sum += i.price * i.quantity));
       state.subTotal = sum;
-      state.shipping = state.subTotal > 1000 ? 0 : 200;
+      state.shipping = ((state.subTotal > 10000)|| (state.totalqty===0)) ? 0 : 200;
       state.tax = +(state.subTotal * 0.18).toFixed();
       state.total = state.subTotal + state.tax + state.shipping;
     },
